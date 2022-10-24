@@ -20,17 +20,20 @@ $password = "63cb61a19f61f365516b3ff7bd68b7d5092ac9e49e9786ed6eb30483d13696b8";
 
 $connection = pg_connect("host=$host dbname=$database user=$user password=$password");
 
+$query = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
+pg_query($connection, $query);
 
-if($message->text == '/start' && $chat_id < 0) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
+
+//if($message->text == '/start' && $chat_id < 0) {
+//    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
 //    $query = "INSERT INTO users (id, name, message) VALUES ($chat_id, $username_chat, '$message');";
 //    pg_query($connection, $query);
-}
-if($message->text == '/start' && $chat_id > 0) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
+//}
+//if($message->text == '/start' && $chat_id > 0) {
+//    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
 //    $query = "INSERT INTO users (id, name, message) VALUES ($chat_id, $username, '$message');";
 //    pg_query($connection, $query);
-}
+//}
 
 
 
