@@ -11,10 +11,10 @@ $username = $message->chat->first_name;
 $username_chat = $message->from->first_name;
 $check_negative_id = gmp_sign($chat_id);
 
-if($message->text == '/start' && $check_negative_id == 1) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет " . $username . "!");
+if($message->text === '/start' && $check_negative_id === 1) {
+    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
 }
 
-if($message->text == '/start' && $check_negative_id == -1) {
+if($message->text === '/start' && $check_negative_id === -1) {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветствую " . $username_chat . "!");
 }
