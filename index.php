@@ -23,12 +23,12 @@ $connection = pg_connect("host=$host dbname=$database user=$user password=$passw
 
 if($message->text == '/start' && $chat_id < 0) {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
-    $query = "INSERT INTO users (id, name,message, is_private) VALUES ($chat_id, $username_chat, '$message', '0');";
+    $query = "INSERT INTO users (id, name,message, is_private) VALUES ($chat_id, $username_chat, '$message', false);";
     pg_query($connection, $query);
 }
 if($message->text == '/start' && $chat_id > 0) {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
-    $query = "INSERT INTO users (id, name, message, is_private) VALUES ($chat_id, $username, '$message', '1');";
+    $query = "INSERT INTO users (id, name, message, is_private) VALUES ($chat_id, $username, '$message', true);";
     pg_query($connection, $query);
 }
 
