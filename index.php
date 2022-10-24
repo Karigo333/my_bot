@@ -11,11 +11,12 @@ $username = $message->chat->first_name;
 $username_chat = $message->from->first_name;
 
 
-if($message->text == '/start' && isset($username_chat)) {
+if($message->text == '/start' && $chat_id < 0) {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
 }
-else file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
-
+if($message->text == '/start' && $chat_id > 0) {
+    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
+}
 
 
 
