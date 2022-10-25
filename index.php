@@ -21,9 +21,9 @@ $password = "63cb61a19f61f365516b3ff7bd68b7d5092ac9e49e9786ed6eb30483d13696b8";
 $connection = pg_connect("host=$host dbname=$database user=$user password=$password");
 
 
-if($message->text == '/start' && $chat_id < 0) {
+if($message->text == '/start') {
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую Вас  " . $username_chat . "!");
-    $query = "INSERT INTO users (id, name, text_message) VALUES ('$chat_id', '$username_chat', '$message');";
+    $query = "INSERT INTO users (id, name, text_message) VALUES ('34', 'rtre', 'reter');";
     pg_query($connection, $query);
 
 }
