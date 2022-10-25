@@ -23,19 +23,21 @@ $connection = pg_connect("host=$host dbname=$database user=$user password=$passw
 $query = "DROP TABLE IF EXISTS inventory;";
 pg_query($connection, $query);
 
-$query = "CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
+$query = "CREATE TABLE test (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
 pg_query($connection, $query);
 
 
 if($message->text == '/start' && $chat_id < 0) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
     $query = "INSERT INTO users (id, name, message) VALUES ('$chat_id', '$username_chat', '$message');";
     pg_query($connection, $query);
+    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
+
 }
 if($message->text == '/start' && $chat_id > 0) {
-    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
     $query = "INSERT INTO users (id, name, message) VALUES ('$chat_id', '$username', '$message');";
     pg_query($connection, $query);
+    file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
+
 }
 
 
