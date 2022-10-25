@@ -20,10 +20,10 @@ $password = "63cb61a19f61f365516b3ff7bd68b7d5092ac9e49e9786ed6eb30483d13696b8";
 
 $connection = pg_connect("host=$host dbname=$database user=$user password=$password");
 
-$query = "DROP TABLE IF EXISTS test;";
+$query = "DROP TABLE IF EXISTS inv;";
 pg_query($connection, $query);
 
-$query = "CREATE TABLE inv (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
+$query = "CREATE TABLE test (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);";
 pg_query($connection, $query);
 
 
