@@ -29,16 +29,15 @@ pg_query($connection, $query);
 file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
 
 if($message->text == '/start' && $chat_id < 0) {
-    $query = "INSERT INTO users (id, name, message) VALUES ($chat_id, $username_chat, '$message');";
-    pg_query($connection, $query);
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Приветcтвую  " . $username_chat . "!");
+    $query = "INSERT INTO users (id, name, text_message) VALUES (123123, 43534534, 'gfhgfhgf');";
+    pg_query($connection, $query);
 
 }
 if($message->text == '/start' && $chat_id > 0) {
-    $query = "INSERT INTO users (id, name, message) VALUES ($chat_id, $username, '$message');";
-    pg_query($connection, $query);
     file_get_contents("https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chat_id . "&text=Привет  " . $username . "!");
-
+    $query = "INSERT INTO users (id, name, text_message) VALUES (-456546456, ghdfgdfg, 'uuuuuuuuu');";
+    pg_query($connection, $query);
 }
 
 
