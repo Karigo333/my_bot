@@ -6,7 +6,7 @@ $update = json_decode($input);
 
 $message = $update->message;
 $chat_id = $message->chat->id;
-$token = "5408077710:AAEKDl9B75vkmPYVYHxET5aW03OI6-czrJQ";
+$token = "5484638704:AAFwAFZYiHskUoqJqSYMIm0JBWYFrJVrRYs";
 $username = $message->chat->first_name;
 $username_chat = $message->from->first_name;
 $message = $message->text;
